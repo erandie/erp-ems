@@ -15,7 +15,7 @@ import java.util.Date;
 public class PurchaseOrder {
     @Id
     private String poNumber;
-    private Vendor vendor;
+//    private Vendor vendor;
     private Date date;
     String terms;
 
