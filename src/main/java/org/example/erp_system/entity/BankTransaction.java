@@ -15,7 +15,6 @@ import lombok.NoArgsConstructor;
 public class BankTransaction {
     @Id
     private String transactionalNumber;
-    private String bankAccount;
     private String type;
     private String reference;
 

@@ -24,13 +24,17 @@ public class BudgetController {
         return budgetService.getAllBudgets();
     }
 
+    @PostMapping("/save")
     public ResponseEntity<ResponseUtil> saveBudget(@RequestBody BudgetDTO budgetDTO) {
 
         int res = budgetService.saveBudget(budgetDTO);
 
         if (res == VarList.Created) {
             return ResponseEntity.status(HttpStatus.CREATED)
-                    .body(new ResponseUtil(201, ))
+                    .body(new ResponseUtil(201, "Budget added successfully!", null));
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE)
+                    .body(new ResponseUtil(206, "Cant add!", null));
         }
 
     }
