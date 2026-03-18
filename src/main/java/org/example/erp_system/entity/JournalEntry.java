@@ -1,14 +1,13 @@
 package org.example.erp_system.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -24,4 +23,8 @@ public class JournalEntry {
 
     @Enumerated(EnumType.STRING)
     private EntryStatus status;
+
+    @OneToMany(mappedBy = "journalEntry", cascade = CascadeType.ALL)
+    private List<JournalEntryLine> lines = new ArrayList<>();
+
 }

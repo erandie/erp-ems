@@ -2,6 +2,8 @@ package org.example.erp_system.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,8 +23,10 @@ public class PurchaseOrder {
 
     private boolean approved = false;
 
-    public void markAsApproved(){
-        this.approved = true;
-    }
+    @OneToOne
+    @JoinColumn(name = "journal_entry_id")
+    private JournalEntry journalEntry;
+
+
 
 }
