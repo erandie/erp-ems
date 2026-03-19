@@ -27,6 +27,7 @@ public class CustomerController {
         return customerService.getAllCustomers();
     }
 
+    @PostMapping("/save")
     public ResponseEntity<ResponseUtil> saveCustomers(@RequestBody CustomerDTO customerDTO) {
         int res = customerService.saveCustomer(customerDTO);
 
